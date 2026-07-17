@@ -1,7 +1,25 @@
 [project]
 name = "py-st-dl-mind-guardian"
 version = "0.1.0"
-description = "Add your description here"
+description = "AI-powered Mental Health Early Warning and Counseling Platform"
+authors = [{ name = "Shawn Yu" }]
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
+
+[tool.git-changelog]
+bump = "auto"
+convention = "conventional"
+in-place = false
+filter-commits = ""
+marker-line = "<!-- insertion marker for GitHub -->"
+output = "CHANGELOG.md"
+parse-refs = true
+parse-trailers = true
+provider = "github"
+repository = "."
+sections = ["feat", "fix", "chore", "docs", "perf", "build", "refactor", "test", "deps"]
+template = "angular"
+version-regex = "^## \\[(?P<version>v?[^\\]]+)"
+versioning = "semver"
+zerover = false
