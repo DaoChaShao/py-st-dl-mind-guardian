@@ -5,7 +5,12 @@ description = "AI-powered Mental Health Early Warning and Counseling Platform"
 authors = [{ name = "Shawn Yu" }]
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "openai>=2.46.0",
+    "pandas-stubs>=3.0.3.260530",
+    "streamlit>=1.59.2",
+    "watchdog>=6.0.0",
+]
 
 [tool.git-changelog]
 bump = "auto"
