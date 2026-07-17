@@ -5,6 +5,8 @@
 
 ### Features
 
+- **preview:** implement data loading and preview functionality ([6dd67cf](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/6dd67cf8277b8dc4e4cfa7e4a4a7e47842691b61))
+- **app:** initialize core application modules and structure ([61a7a61](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/61a7a614306ef512e7439c39de67b4c4fd729f6c))
 - **preview:** add initial preview page module ([ea4c972](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/ea4c972df2f0c1efdee2623eff5da2786c7140bb))
 - **preparation:** add initial preparation module ([3f7fcaf](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/3f7fcaf045f1830bf27eb47e18e1beb212329e32))
 - **app:** initialize main application with page configuration ([0efe813](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/0efe81387e5e07b38efdefecc76aeeaeeabcef02))
