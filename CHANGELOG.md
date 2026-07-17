@@ -5,6 +5,14 @@
 
 ### Features
 
+- **preview:** add initial preview page module ([ea4c972](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/ea4c972df2f0c1efdee2623eff5da2786c7140bb))
+- **preparation:** add initial preparation module ([3f7fcaf](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/3f7fcaf045f1830bf27eb47e18e1beb212329e32))
+- **app:** initialize main application with page configuration ([0efe813](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/0efe81387e5e07b38efdefecc76aeeaeeabcef02))
+- **layout:** add Streamlit page configuration and navigation structure ([7bb2009](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/7bb2009acb7daefcb7cff27ed3c8ea9cfda632c8))
+- **home:** add home page with introduction sections ([7820a8a](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/7820a8a6fb83a7c87c741e6d92f7f2ca8fb9b973))
+- **app:** initialize application structure with main function ([c286b12](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/c286b12bf9f8a18f187c622342337296c8b2bfb2))
+- **tools:** initialize tools module for Streamlit application ([090ad12](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/090ad12062b9aee46d2d2ff704cedaefb133d5f0))
+- **project:** initialize AI data processing application with core utilities ([e9df4fd](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/e9df4fdd5bdb4be3c344582237c4f224085866e5))
 - update uv.lock file ([23f15eb](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/23f15eb476f6e91164f84d4ed67bf92425f9baa8))
 - **utils:** add statistical analysis utilities module ([82211c6](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/82211c6180fa75c8513da3e7d7bc6a9eaac952a5))
 - **project:** add core dependencies for AI data processing application ([ce04ef0](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/ce04ef08a300e2c519f06cf03c2a994a791e7d4b))
@@ -21,6 +29,10 @@
 
 ### Chore
 
+- **subpages:** initialize subpages package with metadata and documentation ([113d0c6](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/113d0c6e1ea3c341114b9dc16e48f18d7c42c83d))
+- **project:** add initial .gitignore file for Python project ([43ff8b7](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/43ff8b762fae360db43b76854f06626f659e8dcf))
+- **tools:** add .gitignore file for Python project ([6fa048b](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/6fa048bb72c17d4e7fe783a84a9a3e0fd23f28b9))
+- **project:** add .gitignore file for Python project ([3c3ac17](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/3c3ac17196d12493e84c2fa1ce6341067fdfcecd))
 - **utils:** add .gitignore for Python project files ([492d029](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/492d0298c3395b949fb0bf289b9c01e7e6a51ab5))
 - **deps:** remove unused dependencies from lockfile ([ec28088](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/ec28088fbaf5f239ee5f5ab1b35c73a68d23f71e))
 - **deps:** update changelog dependency to git-changelog ([6669f57](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/6669f574ab95790c4fb51db99d039bdae8788972))
