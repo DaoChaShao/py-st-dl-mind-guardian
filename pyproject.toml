@@ -27,6 +27,6 @@ zerover = false
 [dependency-groups]
 dev = [
     "black>=26.5.1",
-    "changelog>=0.6.2",
+    "git-changelog>=2.9.4",
     "ruff>=0.15.22",
 ]
