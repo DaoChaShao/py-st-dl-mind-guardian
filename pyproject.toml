@@ -23,3 +23,10 @@ template = "angular"
 version-regex = "^## \\[(?P<version>v?[^\\]]+)"
 versioning = "semver"
 zerover = false
+
+[dependency-groups]
+dev = [
+    "black>=26.5.1",
+    "changelog>=0.6.2",
+    "ruff>=0.15.22",
+]
