@@ -1,10 +1,14 @@
 <!-- insertion marker -->
 <a name="0.1.0"></a>
 
-## [0.1.0](https://github.com/DaoChaShao/py-st-dl-mind-guardian/compare/f776fc80e2cd46b32672038f4e21d0beb6271e50...0.1.0) (2026-07-17)
+## [0.1.0](https://github.com/DaoChaShao/py-st-dl-mind-guardian/compare/f776fc80e2cd46b32672038f4e21d0beb6271e50...0.1.0) (2026-07-18)
 
 ### Features
 
+- **preview:** add balloons animation after data loading ([344212c](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/344212c0a8e9f383f418e8ffcfc5d628a4eebf2e))
+- **preparation:** implement data column selection and preview interface ([d7d28a0](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/d7d28a00536badedcbfb91d2ffb664e9046ec30e))
+- **config:** add comprehensive features configuration for psychological risk assessment ([c69d0af](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/c69d0af457e06881d0472163e2f7c186a88c9a12))
+- **app:** implement data loading and initialize core application structure ([c245f8b](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/c245f8b3d26d57f03c6911ae8aeaf247b6f18bde))
 - **preview:** implement data loading and preview functionality ([6dd67cf](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/6dd67cf8277b8dc4e4cfa7e4a4a7e47842691b61))
 - **app:** initialize core application modules and structure ([61a7a61](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/61a7a614306ef512e7439c39de67b4c4fd729f6c))
 - **preview:** add initial preview page module ([ea4c972](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/ea4c972df2f0c1efdee2623eff5da2786c7140bb))
