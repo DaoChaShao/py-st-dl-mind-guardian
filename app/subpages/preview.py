@@ -6,10 +6,11 @@
 # @File     :   preview.py
 # @Desc     :   
 
-from pandas import DataFrame, Series
+from pandas import DataFrame
 from streamlit import (empty, session_state,
                        sidebar, data_editor,
-                       columns, metric)
+                       columns, metric,
+                       balloons)
 
 from utils import BASE_CONFIG, load_csv
 
@@ -21,6 +22,7 @@ if "RAW" not in session_state:
 
 if sidebar.button("Load the Psychological Data", type="primary", width="stretch"):
     session_state["RAW"]: DataFrame = load_csv(BASE_CONFIG.FILE_PATHS.DATA, dis_summary=True)
+    balloons()
 
 if sidebar.button("Clear the Data", type="secondary", width="stretch"):
     session_state["RAW"] = None
