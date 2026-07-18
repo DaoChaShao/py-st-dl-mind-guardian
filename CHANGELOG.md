@@ -5,6 +5,7 @@
 
 ### Features
 
+- **app:** implement comprehensive data loading and preview functionality ([cc01cda](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/cc01cda24da832ef42cf0f4017117c7358f6a585))
 - **preview:** add balloons animation after data loading ([344212c](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/344212c0a8e9f383f418e8ffcfc5d628a4eebf2e))
 - **preparation:** implement data column selection and preview interface ([d7d28a0](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/d7d28a00536badedcbfb91d2ffb664e9046ec30e))
 - **config:** add comprehensive features configuration for psychological risk assessment ([c69d0af](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/c69d0af457e06881d0472163e2f7c186a88c9a12))
