@@ -5,7 +5,9 @@
 
 ### Features
 
-- **app:** implement comprehensive data loading and preview functionality ([cc01cda](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/cc01cda24da832ef42cf0f4017117c7358f6a585))
+- **preprocessor:** add initial preprocessor module with main function ([d5dd24b](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/d5dd24b227266c177e26fec804ea8715b1df0ed3))
+- **layout:** add data preprocessing page to sidebar navigation ([aaeaf54](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/aaeaf54c265f97a311bd5e05b34ba305f38c4fe8))
+- **app:** implement comprehensive data loading and preview functionality ([6666e12](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/6666e12a2503bfb6da94730efed9bc568243e9a3))
 - **preview:** add balloons animation after data loading ([344212c](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/344212c0a8e9f383f418e8ffcfc5d628a4eebf2e))
 - **preparation:** implement data column selection and preview interface ([d7d28a0](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/d7d28a00536badedcbfb91d2ffb664e9046ec30e))
 - **config:** add comprehensive features configuration for psychological risk assessment ([c69d0af](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/c69d0af457e06881d0472163e2f7c186a88c9a12))
@@ -54,4 +56,8 @@
 - **project:** add initial project documentation and changelog ([7977be6](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/7977be6d0692dbd8e0c440114dce6078b2479128))
 - **readme:** add Chinese documentation for MindGuardian project ([1c35ab5](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/1c35ab56b8e5b0100e1e05041f741a52a44f54bc))
 - **readme:** add comprehensive README with project introduction and setup instructions ([4a3283d](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/4a3283d624df56d909bc67ed20cb80283c1637d6))
+
+### Code Refactoring
+
+- **preparation:** move UI components from main page to sidebar ([3849f36](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/3849f36e285e3d6db3f4a3290ac87489a16cabcb))
 
