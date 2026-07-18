@@ -34,7 +34,7 @@ else:
             "BEHAVIOUR"
         ]
 
-        left, right = columns([4, 1])
+        left, right = columns([3, 1])
         with left:
             col: str = selectbox(
                 "Select a column:",
@@ -63,7 +63,7 @@ else:
                 "Selected Column Number",
                 value=len(set(cols)),
                 delta=f"{len(set(columns)) - len(set(cols))} left",
-                delta_color="off",
+                delta_color="blue",
                 help="The number of columns selected and the number of columns left to select."
             )
 
