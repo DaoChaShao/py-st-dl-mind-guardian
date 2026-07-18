@@ -31,16 +31,19 @@ def set_pages() -> None:
             "app/subpages/home.py",
             "app/subpages/preview.py",
             "app/subpages/preparation.py",
+            "app/subpages/preprocessor.py"
         ],
         "title": [
             "Home",
             "Data Preview",
             "Data Preparation",
+            "Data Preprocessing"
         ],
         "icon": [
             ":material/home:",
             ":material/dashboard:",
             ":material/dashboard_2_gear:",
+            ":material/database:"
         ],
     }
 
@@ -51,6 +54,7 @@ def set_pages() -> None:
         "Core Functions": [
             Page(page=pages["page"][1], title=pages["title"][1], icon=pages["icon"][1]),
             Page(page=pages["page"][2], title=pages["title"][2], icon=pages["icon"][2]),
+            Page(page=pages["page"][3], title=pages["title"][3], icon=pages["icon"][3]),
         ],
     }
     pg = navigation(structure, position="sidebar", expanded=True)
