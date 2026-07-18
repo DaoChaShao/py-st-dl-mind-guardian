@@ -8,9 +8,7 @@
 
 from pandas import DataFrame
 from streamlit import (empty, session_state,
-                       selectbox, data_editor,
-                       columns, metric,
-                       sidebar)
+                       sidebar, data_editor)
 
 from utils import BASE_CONFIG, load_csv
 
@@ -34,14 +32,12 @@ else:
             "BEHAVIOUR"
         ]
 
-        left, right = columns([3, 1])
-        with left:
-            col: str = selectbox(
-                "Select a column:",
-                COLS,
-                index=0, width="stretch",
-                help="Select a column to view its data."
-            )
+        col: str = sidebar.selectbox(
+            "Select a column:",
+            COLS,
+            index=0, width="stretch",
+            help="Select a column to view its data."
+        )
 
         cols: list[str] = [*BASE_CONFIG.FEATURES.ID, *getattr(BASE_CONFIG.FEATURES, col)]
         COLUMNS: list[str] = session_state["RAW"].columns.tolist()
@@ -58,18 +54,14 @@ else:
 
         ]
 
-        with right:
-            metric(
-                "Selected Column Number",
-                value=len(set(cols)),
-                delta=f"{len(set(columns)) - len(set(cols))} left",
-                delta_color="blue",
-                help="The number of columns selected and the number of columns left to select."
-            )
+        sidebar.caption(
+            f"Selected **{len(set(cols))}** columns, and **{len(set(columns)) - len(set(cols))}** columns left.",
+            width="stretch"
+        )
 
         data_editor(
             session_state["RAW"][cols],
-            height=560, width="stretch",
+            height=680, width="stretch",
             hide_index=True, disabled=True, placeholder="Data Preview"
         )
 
