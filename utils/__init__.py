@@ -19,7 +19,7 @@ __author__ = "Shawn Yu"
 __version__ = "0.1.0"
 
 from .apis import verify_api_key, OpenAIEmbedder, OpenAITextCompleter, DeepSeekCompleter
-from .config import BASE_CONFIG
+from .config import CONFIGURATION
 from .decorator import beautifier, timer
 from .helper import (Beautifier, Timer,
                      RandomSeedForGeneral,
@@ -28,7 +28,9 @@ from .highlighter import (black, red, green, yellow, blue, purple, cyan, white,
                           bold, underline, invert, strikethrough,
                           stars, lines, sharps)
 from .stats import (RandomSeedForNumpy,
-                    load_csv)
+                    load_csv,
+                    create_features_transformer, fit_features_transformer,
+                    check_labels_distribution, compute_labels_weights, encode_labels)
 
 __all__ = [
     "verify_api_key",
@@ -36,7 +38,7 @@ __all__ = [
     "OpenAITextCompleter",
     "DeepSeekCompleter",
 
-    "BASE_CONFIG",
+    "CONFIGURATION",
 
     "beautifier",
     "timer",
@@ -53,4 +55,6 @@ __all__ = [
 
     "RandomSeedForNumpy",
     "load_csv",
+    "create_features_transformer", "fit_features_transformer",
+    "check_labels_distribution", "compute_labels_weights", "encode_labels",
 ]
