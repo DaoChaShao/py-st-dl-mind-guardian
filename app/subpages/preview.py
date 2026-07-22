@@ -12,7 +12,7 @@ from streamlit import (empty, session_state,
                        columns, metric,
                        balloons)
 
-from utils import BASE_CONFIG, load_csv
+from utils import CONFIGURATION, load_csv
 
 NOTIFICATIONS = empty()
 DISPLAYER = empty()
@@ -21,7 +21,7 @@ if "RAW" not in session_state:
     session_state["RAW"] = None
 
 if sidebar.button("Load the Psychological Data", type="primary", width="stretch"):
-    session_state["RAW"]: DataFrame = load_csv(BASE_CONFIG.FILE_PATHS.DATA, dis_summary=True)
+    session_state["RAW"]: DataFrame = load_csv(CONFIGURATION.FILE_PATHS.DATA, dis_summary=True)
     balloons()
 
 if sidebar.button("Clear the Data", type="secondary", width="stretch"):
