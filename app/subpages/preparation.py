@@ -6,11 +6,10 @@
 # @File     :   preparation.py
 # @Desc     :   
 
-from pandas import DataFrame
 from streamlit import (empty, session_state,
                        sidebar, data_editor)
 
-from utils import BASE_CONFIG, load_csv
+from utils import CONFIGURATION, load_csv
 
 NOTIFICATIONS = empty()
 DISPLAYER = empty()
@@ -39,18 +38,18 @@ else:
             help="Select a column to view its data."
         )
 
-        cols: list[str] = [*BASE_CONFIG.FEATURES.ID, *getattr(BASE_CONFIG.FEATURES, col)]
+        cols: list[str] = [*CONFIGURATION.FEATURES.ID, *getattr(CONFIGURATION.FEATURES, col)]
         COLUMNS: list[str] = session_state["RAW"].columns.tolist()
         columns: list[str] = [
-            *BASE_CONFIG.FEATURES.ID,
-            *BASE_CONFIG.FEATURES.TARGET,
-            *BASE_CONFIG.FEATURES.DEMOGRAPHY,
-            *BASE_CONFIG.FEATURES.ENVIRONMENT,
-            *BASE_CONFIG.FEATURES.ACADEMIC,
-            *BASE_CONFIG.FEATURES.LIFESTYLE,
-            *BASE_CONFIG.FEATURES.PHYSICAL,
-            *BASE_CONFIG.FEATURES.PSYCHOLOGY,
-            *BASE_CONFIG.FEATURES.BEHAVIOUR
+            *CONFIGURATION.FEATURES.ID,
+            *CONFIGURATION.FEATURES.TARGET,
+            *CONFIGURATION.FEATURES.DEMOGRAPHY,
+            *CONFIGURATION.FEATURES.ENVIRONMENT,
+            *CONFIGURATION.FEATURES.ACADEMIC,
+            *CONFIGURATION.FEATURES.LIFESTYLE,
+            *CONFIGURATION.FEATURES.PHYSICAL,
+            *CONFIGURATION.FEATURES.PSYCHOLOGY,
+            *CONFIGURATION.FEATURES.BEHAVIOUR
 
         ]
 
