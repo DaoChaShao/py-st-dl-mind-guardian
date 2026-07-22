@@ -8,6 +8,7 @@ requires-python = ">=3.12"
 dependencies = [
     "openai>=2.46.0",
     "pandas-stubs>=3.0.3.260530",
+    "scikit-learn>=1.9.0",
     "streamlit>=1.59.2",
     "watchdog>=6.0.0",
 ]
