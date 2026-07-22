@@ -18,8 +18,11 @@ __author__ = "Shawn Yu"
 __version__ = "0.1.0"
 
 from .layout import config_page, set_pages
+from .lever import check_data_dtypes
 
 __all__ = [
     "config_page",
     "set_pages",
+
+    "check_data_dtypes"
 ]
