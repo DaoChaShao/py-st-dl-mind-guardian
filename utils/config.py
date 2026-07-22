@@ -113,7 +113,7 @@ class Features:
 
 
 @dataclass
-class BaseConfig:
+class Configuration:
     DATABASE: Database = field(default_factory=Database)
     FILE_PATHS: FilePaths = field(default_factory=FilePaths)
     PUNCTUATIONS: Punctuations = field(default_factory=Punctuations)
@@ -121,4 +121,4 @@ class BaseConfig:
     FEATURES: Features = field(default_factory=Features)
 
 
-BASE_CONFIG = BaseConfig()
+CONFIGURATION = Configuration()
