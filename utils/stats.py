@@ -6,11 +6,19 @@
 # @File     :   stats.py
 # @Desc     :   
 
-from numpy import random as np_random
+from numpy import (random as np_random,
+                   asarray, ndarray)
 from pandas import DataFrame, Series, read_csv
 from pathlib import Path
 from random import seed as rnd_seed, getstate, setstate
 from time import perf_counter
+
+from sklearn.compose import ColumnTransformer
+from sklearn.impute import SimpleImputer
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder, StandardScaler, LabelEncoder
+from sklearn.utils.class_weight import compute_class_weight
 
 from utils.decorator import timer
 
@@ -141,6 +149,158 @@ def load_csv(csv_path: str | Path, *, dis_content: bool = True, dis_summary: boo
         print(f"Missing Values Details: \n{miss_details}")
 
     return dataset
+
+
+@timer
+def create_features_transformer(features: DataFrame, *, dis_transformer: bool = True) -> ColumnTransformer:
+    """
+    Create a ColumnTransformer to preprocess the categorical data and scale the numerical data.
+    :param features: the DataFrame to be preprocessed
+    :param dis_transformer: Toggle for printing the transformer details.
+    :return: the created ColumnTransformer
+    """
+    # Divide the columns into numerical and categorical types
+    # Select numerical columns
+    numerical_cols = features.select_dtypes(include="number").columns.tolist()
+    # Select categorical columns
+    categorical_cols = features.select_dtypes(include=["object", "category"]).columns.tolist()
+
+    # Set a list of transformers to collect the pipelines
+    transformers: list[tuple[str, Pipeline, list[str]]] = []
+
+    # Establish a pipe to process numerical features and handle missing values only if they exist
+    if numerical_cols:
+        numerical_pipe = Pipeline(steps=[
+            ("imputer", SimpleImputer(strategy="median")),
+            ("scaler", StandardScaler()),
+        ])
+        transformers.append(("num", numerical_pipe, numerical_cols))
+
+    # Establish a pipe to process categorical features and handle missing values only if they exist
+    if categorical_cols:
+        categorical_pipe = Pipeline(steps=[
+            ("imputer", SimpleImputer(strategy="most_frequent")),
+            ("encoder", OneHotEncoder(handle_unknown="ignore", sparse_output=False))
+        ])
+        transformers.append(("cat", categorical_pipe, categorical_cols))
+
+    if dis_transformer:
+        print(f"Numerical columns: {numerical_cols}")
+        print(f"Categorical columns: {categorical_cols}")
+
+    # Process numerical and categorical features
+    return ColumnTransformer(transformers=transformers, remainder="drop")
+
+
+@timer
+def fit_features_transformer(features: DataFrame, *, transformer: ColumnTransformer) -> ColumnTransformer:
+    """
+    Fit the transformer on training data.
+    :param features: the DataFrame to be transformed
+    :param transformer: the ColumnTransformer to be fitted
+    :return: the fitted ColumnTransformer
+    """
+    transformer.fit(features)
+
+    return transformer
+
+
+@timer
+def check_labels_distribution(labels: Series, *, dis_counts: bool = True, dis_prop: bool = True) -> tuple:
+    """
+    Check the distribution of the labels in the target variable.
+    :param labels: the target variable
+    :param dis_counts: Toggle for printing the label counts
+    :param dis_prop: Toggle for printing the label proportions
+    :return: the label counts and proportions
+    """
+    if dis_counts:
+        print(labels.value_counts())
+    if dis_prop:
+        print(labels.value_counts(normalize=True))
+
+    return labels.value_counts(), labels.value_counts(normalize=True)
+
+
+@timer
+def encode_labels(labels: Series, *, dis_encoded: bool = True) -> tuple[ndarray, LabelEncoder]:
+    """
+    Encode the labels in the target variable.
+    :param labels: the target variable
+    :param dis_encoded: Toggle for printing the encoded labels
+    :return: the encoded labels and the label encoder
+    """
+    # Initialise the label encoder
+    encoder: LabelEncoder = LabelEncoder()
+    # Fit and transform the label encoder
+    outcome: ndarray = encoder.fit_transform(labels)
+
+    if dis_encoded:
+        print(outcome)
+
+    return outcome, encoder
+
+
+@timer
+def compute_labels_weights(y_train: Series, *, dis_weights: bool = True) -> ndarray:
+    """
+    Compute class weights for imbalanced datasets.
+    :param y_train: the target variable
+    :param dis_weights: Toggle for printing the class weights
+    :return:
+    """
+    weights: ndarray = compute_class_weight(
+        class_weight="balanced",
+        classes=asarray(y_train.unique()),
+        y=asarray(y_train),
+        # classes=y.unique().to_numpy(),
+        # y=y,
+    )
+
+    if dis_weights:
+        print(weights)
+
+    return weights
+
+
+@timer
+def split_data(
+        features: DataFrame, labels: Series,
+        *,
+        randomness: int = 27, shuffle_status: bool = True, dis_split: bool = True
+) -> tuple:
+    """
+    Split the data into training, validation, and proving sets.
+    :param features: the DataFrame of features
+    :param labels: the Series of labels
+    :param randomness: the random seed for reproducibility
+    :param shuffle_status: whether to shuffle the data before splitting
+    :param dis_split: Toggle for printing the split sets
+    :return: the training, validation, and proving sets
+    """
+    assert len(features) == len(labels), "The number of features must be equal to the number of labels."
+
+    X_train, X_temp, y_train, y_temp = train_test_split(
+        features, labels,
+        test_size=0.3,
+        random_state=randomness,
+        shuffle=shuffle_status,
+        stratify=labels,
+    )
+    X_valid, X_test, y_valid, y_test = train_test_split(
+        X_temp, y_temp,
+        test_size=0.5,
+        random_state=randomness,
+        shuffle=shuffle_status,
+        stratify=y_temp,
+    )
+
+    if dis_split:
+        print(f"Training set: {X_train.shape}, {y_train.shape}")
+        print(f"Validation set: {X_valid.shape}, {y_valid.shape}")
+        print(f"Proving set: {X_test.shape}, {y_test.shape}")
+
+    return X_train, X_valid, X_test, y_train, y_valid, y_test
 
 
 if __name__ == "__main__":
