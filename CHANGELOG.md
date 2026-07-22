@@ -1,10 +1,17 @@
 <!-- insertion marker -->
 <a name="0.1.0"></a>
 
-## [0.1.0](https://github.com/DaoChaShao/py-st-dl-mind-guardian/compare/f776fc80e2cd46b32672038f4e21d0beb6271e50...0.1.0) (2026-07-18)
+## [0.1.0](https://github.com/DaoChaShao/py-st-dl-mind-guardian/compare/f776fc80e2cd46b32672038f4e21d0beb6271e50...0.1.0) (2026-07-22)
 
 ### Features
 
+- **deps:** add scikit-learn and joblib dependencies ([66609e2](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/66609e22abcb10997e9146ae3370cb1d0ff3e8d1))
+- **stats:** add machine learning preprocessing utilities ([f71d89b](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/f71d89bc8eaca64ef5d9d9b99384c94647eb647f))
+- **deps:** add scikit-learn dependency ([46ef9a9](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/46ef9a94318adc44166059c7a3cae8ec9663815d))
+- **preprocessor:** implement data preprocessing interface with column selection ([91314e3](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/91314e3d6b42a48aa10c1c1e1e25c35cab7debb8))
+- **tools:** add lever module for data type checking ([f2f87af](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/f2f87af11d4cb39ef7f531abe3b71b9f96bc72e8))
+- **tools:** add data type checking functionality ([dd3a93b](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/dd3a93ba6a63b45848369ffe90b6729c904c25ce))
+- **app:** implement data preprocessing page with preprocessor module ([0b9bd6f](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/0b9bd6fd5512de3cb6f5ec74cfd9f3c225e481dc))
 - **preprocessor:** add initial preprocessor module with main function ([d5dd24b](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/d5dd24b227266c177e26fec804ea8715b1df0ed3))
 - **layout:** add data preprocessing page to sidebar navigation ([aaeaf54](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/aaeaf54c265f97a311bd5e05b34ba305f38c4fe8))
 - **app:** implement comprehensive data loading and preview functionality ([6666e12](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/6666e12a2503bfb6da94730efed9bc568243e9a3))
@@ -59,5 +66,9 @@
 
 ### Code Refactoring
 
+- **preview:** replace BASE_CONFIG with CONFIGURATION ([a939c81](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/a939c81f9fe3c1c334084ff460a7055a0b5746d9))
+- **preparation:** replace BASE_CONFIG with CONFIGURATION import ([aac502e](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/aac502e17d2529cbeca8697c92cce753878cb415))
+- **config:** rename BaseConfig to Configuration ([4743969](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/4743969af19de7628f5b199491fd32d61d432dff))
+- **utils:** update module imports and exports ([76ceaec](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/76ceaec8e22053f4991c5148bf36fa8da62fdfea))
 - **preparation:** move UI components from main page to sidebar ([3849f36](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/3849f36e285e3d6db3f4a3290ac87489a16cabcb))
 
