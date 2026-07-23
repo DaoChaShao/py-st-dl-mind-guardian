@@ -7,8 +7,8 @@
 # @Desc     :   
 
 from numpy import (random as np_random,
-                   asarray, ndarray)
-from pandas import DataFrame, Series, read_csv
+                   unique, ndarray)
+from pandas import DataFrame, Series, read_csv, Index
 from pathlib import Path
 from random import seed as rnd_seed, getstate, setstate
 from time import perf_counter
@@ -125,7 +125,7 @@ class RandomSeedForNumpy:
 
 
 @timer
-def load_csv(csv_path: str | Path, *, dis_content: bool = True, dis_summary: bool = False) -> DataFrame:
+def load_csv(csv_path: str | Path, *, dis_content: bool = True, dis_summary: bool = True) -> DataFrame:
     """
     Read data from a dataset file
     :param csv_path: Target path to the file.
@@ -149,6 +149,88 @@ def load_csv(csv_path: str | Path, *, dis_content: bool = True, dis_summary: boo
         print(f"Missing Values Details: \n{miss_details}")
 
     return dataset
+
+
+@timer
+def check_labels_distribution(labels: Series, *, dis_counts: bool = True, dis_prop: bool = True) -> tuple:
+    """
+    Check the distribution of the labels in the target variable.
+    :param labels: the target variable
+    :param dis_counts: Toggle for printing the label counts
+    :param dis_prop: Toggle for printing the label proportions
+    :return: the label counts and proportions
+    """
+    if dis_counts:
+        print(labels.value_counts())
+        print()
+    if dis_prop:
+        print(labels.value_counts(normalize=True))
+
+    return labels.value_counts(), labels.value_counts(normalize=True)
+
+
+@timer
+def encode_labels(labels: Series, *, dis_encoded: bool = True) -> tuple[Series, LabelEncoder]:
+    """
+    Encode the labels in the target variable.
+    :param labels: the target variable
+    :param dis_encoded: Toggle for printing the encoded labels
+    :return: the encoded labels and the label encoder
+    """
+    # Initialise the label encoder
+    encoder: LabelEncoder = LabelEncoder()
+    # Fit and transform the label encoder
+    out: Series = Series(
+        encoder.fit_transform(labels),
+        index=labels.index,
+        name=labels.name
+    )
+
+    if dis_encoded:
+        print(f"Label encoder classes: {encoder.classes_}")
+        print(f"5 / {len(out)} encoded labels:\n{out.head()}")
+
+    return out, encoder
+
+
+@timer
+def split_data(
+        features: DataFrame, labels: Series,
+        *,
+        randomness: int = 27, shuffle_status: bool = True, dis_split: bool = True
+) -> tuple:
+    """
+    Split the data into training, validation, and proving sets.
+    :param features: the DataFrame of features
+    :param labels: the Series of labels
+    :param randomness: the random seed for reproducibility
+    :param shuffle_status: whether to shuffle the data before splitting
+    :param dis_split: Toggle for printing the split sets
+    :return: the training, validation, and proving sets
+    """
+    assert len(features) == len(labels), "The number of features must be equal to the number of labels."
+
+    X_train, X_temp, y_train, y_temp = train_test_split(
+        features, labels,
+        test_size=0.3,
+        random_state=randomness,
+        shuffle=shuffle_status,
+        stratify=labels,
+    )
+    X_valid, X_test, y_valid, y_test = train_test_split(
+        X_temp, y_temp,
+        test_size=0.5,
+        random_state=randomness,
+        shuffle=shuffle_status,
+        stratify=y_temp,
+    )
+
+    if dis_split:
+        print(f"Training set: {X_train.shape}, {y_train.shape}")
+        print(f"Validation set: {X_valid.shape}, {y_valid.shape}")
+        print(f"Proving set: {X_test.shape}, {y_test.shape}")
+
+    return X_train, X_valid, X_test, y_train, y_valid, y_test
 
 
 @timer
@@ -192,7 +274,6 @@ def create_features_transformer(features: DataFrame, *, dis_transformer: bool = 
     return ColumnTransformer(transformers=transformers, remainder="drop")
 
 
-@timer
 def fit_features_transformer(features: DataFrame, *, transformer: ColumnTransformer) -> ColumnTransformer:
     """
     Fit the transformer on training data.
@@ -200,45 +281,22 @@ def fit_features_transformer(features: DataFrame, *, transformer: ColumnTransfor
     :param transformer: the ColumnTransformer to be fitted
     :return: the fitted ColumnTransformer
     """
-    transformer.fit(features)
-
-    return transformer
+    return transformer.fit(features)
 
 
-@timer
-def check_labels_distribution(labels: Series, *, dis_counts: bool = True, dis_prop: bool = True) -> tuple:
+def transform_features(features: ndarray, *, transformer: ColumnTransformer, index: Index | None = None) -> DataFrame:
     """
-    Check the distribution of the labels in the target variable.
-    :param labels: the target variable
-    :param dis_counts: Toggle for printing the label counts
-    :param dis_prop: Toggle for printing the label proportions
-    :return: the label counts and proportions
+    Transform the features using the fitted transformer.
+    :param features: the DataFrame to be transformed
+    :param transformer: the ColumnTransformer to be used
+    :param index: the index of the transformed DataFrame
+    :return: the transformed DataFrame
     """
-    if dis_counts:
-        print(labels.value_counts())
-    if dis_prop:
-        print(labels.value_counts(normalize=True))
-
-    return labels.value_counts(), labels.value_counts(normalize=True)
-
-
-@timer
-def encode_labels(labels: Series, *, dis_encoded: bool = True) -> tuple[ndarray, LabelEncoder]:
-    """
-    Encode the labels in the target variable.
-    :param labels: the target variable
-    :param dis_encoded: Toggle for printing the encoded labels
-    :return: the encoded labels and the label encoder
-    """
-    # Initialise the label encoder
-    encoder: LabelEncoder = LabelEncoder()
-    # Fit and transform the label encoder
-    outcome: ndarray = encoder.fit_transform(labels)
-
-    if dis_encoded:
-        print(outcome)
-
-    return outcome, encoder
+    return DataFrame(
+        features,
+        columns=transformer.get_feature_names_out(),
+        index=index
+    )
 
 
 @timer
@@ -251,56 +309,14 @@ def compute_labels_weights(y_train: Series, *, dis_weights: bool = True) -> ndar
     """
     weights: ndarray = compute_class_weight(
         class_weight="balanced",
-        classes=asarray(y_train.unique()),
-        y=asarray(y_train),
-        # classes=y.unique().to_numpy(),
-        # y=y,
+        classes=unique(y_train),
+        y=y_train,
     )
 
     if dis_weights:
         print(weights)
 
     return weights
-
-
-@timer
-def split_data(
-        features: DataFrame, labels: Series,
-        *,
-        randomness: int = 27, shuffle_status: bool = True, dis_split: bool = True
-) -> tuple:
-    """
-    Split the data into training, validation, and proving sets.
-    :param features: the DataFrame of features
-    :param labels: the Series of labels
-    :param randomness: the random seed for reproducibility
-    :param shuffle_status: whether to shuffle the data before splitting
-    :param dis_split: Toggle for printing the split sets
-    :return: the training, validation, and proving sets
-    """
-    assert len(features) == len(labels), "The number of features must be equal to the number of labels."
-
-    X_train, X_temp, y_train, y_temp = train_test_split(
-        features, labels,
-        test_size=0.3,
-        random_state=randomness,
-        shuffle=shuffle_status,
-        stratify=labels,
-    )
-    X_valid, X_test, y_valid, y_test = train_test_split(
-        X_temp, y_temp,
-        test_size=0.5,
-        random_state=randomness,
-        shuffle=shuffle_status,
-        stratify=y_temp,
-    )
-
-    if dis_split:
-        print(f"Training set: {X_train.shape}, {y_train.shape}")
-        print(f"Validation set: {X_valid.shape}, {y_valid.shape}")
-        print(f"Proving set: {X_test.shape}, {y_test.shape}")
-
-    return X_train, X_valid, X_test, y_train, y_valid, y_test
 
 
 if __name__ == "__main__":
