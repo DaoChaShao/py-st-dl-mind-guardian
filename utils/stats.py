@@ -25,7 +25,7 @@ from utils.decorator import timer
 WIDTH: int = 64
 
 
-class RandomSeedForNumpy:
+class NumpyRandomSeed:
     """ Setting numpy random seed for reproducibility """
 
     def __init__(self, description: str, seed: int = 27, tick_tock: bool = False):
