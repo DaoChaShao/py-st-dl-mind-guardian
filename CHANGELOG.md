@@ -5,6 +5,10 @@
 
 ### Features
 
+- **deps:** add CUDA toolkit and related packages to project dependencies ([fc24997](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/fc24997cda0c267c1bc4528c8b891a932033f088))
+- **common:** add TorchRandomSeed context manager for reproducible ML experiments ([f17535f](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/f17535f1995b835b82b4608005bfee64ffeb3622))
+- **dl:** initialize deep learning module with PyTorch toolkit ([b8c4a91](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/b8c4a91390a760a992d7fbb2c6c1881d34f66393))
+- **pipeline:** add data preprocessing and preparation modules ([c88747b](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/c88747b4f7264b120ee60a7916b1391cb5c36664))
 - **pipeline:** add data preprocessing module ([b9196b2](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/b9196b2b59f20315d86c5ef01b138c6fcb9d6cf8))
 - **pipeline:** add data preparation module for model training ([f19c13d](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/f19c13d7564a10d20e1a01261f0246fe70abf8fe))
 - **app:** implement data preprocessing functionality with ML utilities ([9a5d65e](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/9a5d65eed29d52f021781de655245ed78fcc626b))
@@ -48,6 +52,8 @@
 
 ### Chore
 
+- **deps:** add torch dependency to pyproject.toml ([0cc2454](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/0cc24547c637950cdb260e5bb38b8bfaa1e53e09))
+- **dl:** add initial .gitignore file for Python project ([c478dcc](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/c478dccd06ea6454fe9a7ea59c31da4fc25cdebb))
 - **pipeline:** add .gitignore file for Python project ([1f2150d](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/1f2150de6069bcea4c0351a986f21cf40e1aaf19))
 - **subpages:** initialize subpages package with metadata and documentation ([113d0c6](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/113d0c6e1ea3c341114b9dc16e48f18d7c42c83d))
 - **project:** add initial .gitignore file for Python project ([43ff8b7](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/43ff8b762fae360db43b76854f06626f659e8dcf))
@@ -70,6 +76,9 @@
 
 ### Code Refactoring
 
+- **utils:** rename RandomSeedForNumpy class to NumpyRandomSeed ([539ab09](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/539ab09719a881c7f662356d32abbfd68cbe313f))
+- **utils:** rename RandomSeedForGeneral class to RandomSeed ([578504d](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/578504d042569b08789151970bbc29c1071bfd08))
+- **utils:** rename random seed utility classes for consistency ([58f5510](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/58f5510433f02c3faea5b8375e94c7a15d913446))
 - **utils:** restructure stats module with improved data processing functions ([58fa367](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/58fa367f01f13b2ba30b8d2c476b18af4d9e03eb))
 - **utils:** reorganize imports and exports in utils module ([0fd57ec](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/0fd57ecea1400abd705f68f6da272eb0bdf809e9))
 - **preview:** replace BASE_CONFIG with CONFIGURATION ([a939c81](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/a939c81f9fe3c1c334084ff460a7055a0b5746d9))
