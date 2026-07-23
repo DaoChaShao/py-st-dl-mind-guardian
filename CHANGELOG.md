@@ -1,10 +1,13 @@
 <!-- insertion marker -->
 <a name="0.1.0"></a>
 
-## [0.1.0](https://github.com/DaoChaShao/py-st-dl-mind-guardian/compare/f776fc80e2cd46b32672038f4e21d0beb6271e50...0.1.0) (2026-07-22)
+## [0.1.0](https://github.com/DaoChaShao/py-st-dl-mind-guardian/compare/f776fc80e2cd46b32672038f4e21d0beb6271e50...0.1.0) (2026-07-23)
 
 ### Features
 
+- **pipeline:** add data preprocessing module ([b9196b2](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/b9196b2b59f20315d86c5ef01b138c6fcb9d6cf8))
+- **pipeline:** add data preparation module for model training ([f19c13d](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/f19c13d7564a10d20e1a01261f0246fe70abf8fe))
+- **app:** implement data preprocessing functionality with ML utilities ([9a5d65e](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/9a5d65eed29d52f021781de655245ed78fcc626b))
 - **deps:** add scikit-learn and joblib dependencies ([66609e2](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/66609e22abcb10997e9146ae3370cb1d0ff3e8d1))
 - **stats:** add machine learning preprocessing utilities ([f71d89b](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/f71d89bc8eaca64ef5d9d9b99384c94647eb647f))
 - **deps:** add scikit-learn dependency ([46ef9a9](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/46ef9a94318adc44166059c7a3cae8ec9663815d))
@@ -45,6 +48,7 @@
 
 ### Chore
 
+- **pipeline:** add .gitignore file for Python project ([1f2150d](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/1f2150de6069bcea4c0351a986f21cf40e1aaf19))
 - **subpages:** initialize subpages package with metadata and documentation ([113d0c6](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/113d0c6e1ea3c341114b9dc16e48f18d7c42c83d))
 - **project:** add initial .gitignore file for Python project ([43ff8b7](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/43ff8b762fae360db43b76854f06626f659e8dcf))
 - **tools:** add .gitignore file for Python project ([6fa048b](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/6fa048bb72c17d4e7fe783a84a9a3e0fd23f28b9))
@@ -66,6 +70,8 @@
 
 ### Code Refactoring
 
+- **utils:** restructure stats module with improved data processing functions ([58fa367](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/58fa367f01f13b2ba30b8d2c476b18af4d9e03eb))
+- **utils:** reorganize imports and exports in utils module ([0fd57ec](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/0fd57ecea1400abd705f68f6da272eb0bdf809e9))
 - **preview:** replace BASE_CONFIG with CONFIGURATION ([a939c81](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/a939c81f9fe3c1c334084ff460a7055a0b5746d9))
 - **preparation:** replace BASE_CONFIG with CONFIGURATION import ([aac502e](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/aac502e17d2529cbeca8697c92cce753878cb415))
 - **config:** rename BaseConfig to Configuration ([4743969](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/4743969af19de7628f5b199491fd32d61d432dff))
