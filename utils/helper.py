@@ -79,7 +79,7 @@ class Timer(object):
         return f"{self._description} has NOT started."
 
 
-class RandomSeedForGeneral:
+class RandomSeed:
     """ Setting random seed for reproducibility """
 
     def __init__(self, description: str, seed: int = 27, tick_tock: bool = False) -> None:
