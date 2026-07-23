@@ -10,6 +10,7 @@ dependencies = [
     "pandas-stubs>=3.0.3.260530",
     "scikit-learn>=1.9.0",
     "streamlit>=1.59.2",
+    "torch>=2.13.0",
     "watchdog>=6.0.0",
 ]
 
