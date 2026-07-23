@@ -22,12 +22,12 @@ from .apis import verify_api_key, OpenAIEmbedder, OpenAITextCompleter, DeepSeekC
 from .config import CONFIGURATION
 from .decorator import beautifier, timer
 from .helper import (Beautifier, Timer,
-                     RandomSeedForGeneral,
+                     RandomSeed,
                      load_file, load_files)
 from .highlighter import (black, red, green, yellow, blue, purple, cyan, white,
                           bold, underline, invert, strikethrough,
                           stars, lines, sharps)
-from .stats import (RandomSeedForNumpy,
+from .stats import (NumpyRandomSeed,
                     load_csv,
                     check_labels_distribution, encode_labels,
                     split_data,
@@ -47,7 +47,7 @@ __all__ = [
 
     "Beautifier",
     "Timer",
-    "RandomSeedForGeneral",
+    "RandomSeed",
     "load_file",
     "load_files",
 
@@ -55,7 +55,7 @@ __all__ = [
     "bold", "underline", "invert", "strikethrough",
     "stars", "lines", "sharps",
 
-    "RandomSeedForNumpy",
+    "NumpyRandomSeed",
     "load_csv",
     "check_labels_distribution", "encode_labels",
     "split_data",
