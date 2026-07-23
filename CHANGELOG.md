@@ -5,6 +5,7 @@
 
 ### Features
 
+- **project:** initialize deep learning project with PyTorch and CUDA support ([ab45827](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/ab45827ff5986812cdfa1e8b080e7de3f469a754))
 - **deps:** add CUDA toolkit and related packages to project dependencies ([fc24997](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/fc24997cda0c267c1bc4528c8b891a932033f088))
 - **common:** add TorchRandomSeed context manager for reproducible ML experiments ([f17535f](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/f17535f1995b835b82b4608005bfee64ffeb3622))
 - **dl:** initialize deep learning module with PyTorch toolkit ([b8c4a91](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/b8c4a91390a760a992d7fbb2c6c1881d34f66393))
