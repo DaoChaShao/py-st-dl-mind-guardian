@@ -5,10 +5,16 @@
 
 ### Features
 
+- **dl:** add Multi-Layer Perceptron (MLP) implementation ([9033ca5](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/9033ca578bd2eb82b22970141a1b0533a6e32438))
+- **dl:** add TorchDataset class for PyTorch data handling ([321a66e](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/321a66e31888664c6b0c2f328e90eeec141a398b))
+- **dataloader:** add custom PyTorch DataLoader with NLP batching support ([452064a](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/452064a311c95da79093ea872f78cfabc7d86283))
+- **nets:** add abstract base class for neural networks ([771104f](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/771104f7a4598786d7a17abc78b285a215f2a2de))
+- **core:** add dataset and neural network components to core module ([97e2f5e](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/97e2f5ef00ada6b19435135e66b16b1e1decaab8))
+- **nets:** initialize neural network module with PyTorch toolkit ([9ef898c](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/9ef898ca0a74d96a34ba6e1914a2031a0ad0a1c9))
+- **project:** initialize deep learning project with PyTorch and CUDA support ([3881cb2](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/3881cb25eb7e7c404fae9ce4f38ddae5ee48a942))
 - **dl:** add tensor conversion utility function ([b4b39e1](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/b4b39e184d2ca9cd673e14d402cd69d67cf8b5e8))
 - **utils:** add label comparison function and improve encoding display ([3b102c6](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/3b102c646d29951efa51d182ebb9f3a9f870c8b8))
 - **devices:** add device detection and selection utility ([249528a](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/249528a83975230faeb35c0786c7c3d14a313e44))
-- **project:** initialize deep learning project with PyTorch and CUDA support ([6c37a00](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/6c37a00b7da44b53a7086ca7ff5af18adf7ad984))
 - **deps:** add CUDA toolkit and related packages to project dependencies ([fc24997](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/fc24997cda0c267c1bc4528c8b891a932033f088))
 - **common:** add TorchRandomSeed context manager for reproducible ML experiments ([f17535f](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/f17535f1995b835b82b4608005bfee64ffeb3622))
 - **dl:** initialize deep learning module with PyTorch toolkit ([b8c4a91](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/b8c4a91390a760a992d7fbb2c6c1881d34f66393))
@@ -56,6 +62,7 @@
 
 ### Chore
 
+- **nets:** add .gitignore for Python project ([1b1893f](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/1b1893f54df9104da82a2c7ca7bd6ce8cd3edddb))
 - **deps:** add torch dependency to pyproject.toml ([0cc2454](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/0cc24547c637950cdb260e5bb38b8bfaa1e53e09))
 - **dl:** add initial .gitignore file for Python project ([c478dcc](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/c478dccd06ea6454fe9a7ea59c31da4fc25cdebb))
 - **pipeline:** add .gitignore file for Python project ([1f2150d](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/1f2150de6069bcea4c0351a986f21cf40e1aaf19))
