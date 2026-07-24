@@ -1,11 +1,14 @@
 <!-- insertion marker -->
 <a name="0.1.0"></a>
 
-## [0.1.0](https://github.com/DaoChaShao/py-st-dl-mind-guardian/compare/f776fc80e2cd46b32672038f4e21d0beb6271e50...0.1.0) (2026-07-23)
+## [0.1.0](https://github.com/DaoChaShao/py-st-dl-mind-guardian/compare/f776fc80e2cd46b32672038f4e21d0beb6271e50...0.1.0) (2026-07-24)
 
 ### Features
 
-- **project:** initialize deep learning project with PyTorch and CUDA support ([ab45827](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/ab45827ff5986812cdfa1e8b080e7de3f469a754))
+- **dl:** add tensor conversion utility function ([b4b39e1](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/b4b39e184d2ca9cd673e14d402cd69d67cf8b5e8))
+- **utils:** add label comparison function and improve encoding display ([3b102c6](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/3b102c646d29951efa51d182ebb9f3a9f870c8b8))
+- **devices:** add device detection and selection utility ([249528a](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/249528a83975230faeb35c0786c7c3d14a313e44))
+- **project:** initialize deep learning project with PyTorch and CUDA support ([6c37a00](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/6c37a00b7da44b53a7086ca7ff5af18adf7ad984))
 - **deps:** add CUDA toolkit and related packages to project dependencies ([fc24997](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/fc24997cda0c267c1bc4528c8b891a932033f088))
 - **common:** add TorchRandomSeed context manager for reproducible ML experiments ([f17535f](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/f17535f1995b835b82b4608005bfee64ffeb3622))
 - **dl:** initialize deep learning module with PyTorch toolkit ([b8c4a91](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/b8c4a91390a760a992d7fbb2c6c1881d34f66393))
@@ -77,6 +80,10 @@
 
 ### Code Refactoring
 
+- **dl:** rename common.py to seeds.py ([aa34f59](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/aa34f596ad437fcba4a8f274c96b9748b60bb854))
+- **pipeline:** reorganize preprocessing functions and add label validation ([59d5a50](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/59d5a50fa5fed55f267ab67530af00e96778d084))
+- **utils:** update imports and exports in __init__.py ([1b1ec11](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/1b1ec115dff0d26805f8ae7be76fc667b18ada5a))
+- **dl:** reorganize module imports and exports ([72fcbc6](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/72fcbc685635c6507a4a3a42a466561216a6a410))
 - **utils:** rename RandomSeedForNumpy class to NumpyRandomSeed ([539ab09](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/539ab09719a881c7f662356d32abbfd68cbe313f))
 - **utils:** rename RandomSeedForGeneral class to RandomSeed ([578504d](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/578504d042569b08789151970bbc29c1071bfd08))
 - **utils:** rename random seed utility classes for consistency ([58f5510](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/58f5510433f02c3faea5b8375e94c7a15d913446))
