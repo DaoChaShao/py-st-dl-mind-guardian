@@ -29,9 +29,11 @@ from .highlighter import (black, red, green, yellow, blue, purple, cyan, white,
                           stars, lines, sharps)
 from .stats import (NumpyRandomSeed,
                     load_csv,
-                    check_labels_distribution, encode_labels,
+                    check_labels_distribution,
+                    encode_labels,
                     split_data,
                     create_features_transformer, fit_features_transformer, transform_features,
+                    compare_labels,
                     compute_labels_weights, )
 
 __all__ = [
@@ -57,8 +59,10 @@ __all__ = [
 
     "NumpyRandomSeed",
     "load_csv",
-    "check_labels_distribution", "encode_labels",
+    "check_labels_distribution",
+    "encode_labels",
     "split_data",
     "create_features_transformer", "fit_features_transformer", "transform_features",
+    "compare_labels",
     "compute_labels_weights",
 ]
