@@ -10,9 +10,9 @@ from pandas import DataFrame, Series
 
 from utils import (load_csv, CONFIGURATION,
                    check_labels_distribution,
-                   encode_labels,
                    split_data,
-                   create_features_transformer, fit_features_transformer, transform_features)
+                   create_features_transformer, fit_features_transformer, transform_features,
+                   encode_labels, compare_labels)
 
 
 def preprocess_data() -> tuple:
@@ -59,6 +59,16 @@ def preprocess_data() -> tuple:
     print(f"X_val_transformed Shape: {transformed_X_valid.shape}")
     print(transformed_X_test.head())
     print(f"X_test_transformed Shape: {transformed_X_test.shape}")
+
+    # Compare the labels
+    compare_labels(raw, y_train)
+    compare_labels(raw, y_valid)
+    compare_labels(raw, y_test)
+
+    # Check the labels distribution
+    check_labels_distribution(y_train)
+    check_labels_distribution(y_valid)
+    check_labels_distribution(y_test)
 
     return encoder, processor, transformed_X_train, transformed_X_valid, transformed_X_test, y_train, y_valid, y_test
 
