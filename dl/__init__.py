@@ -19,8 +19,14 @@ loss functions, and other PyTorch-related components.
 __author__ = "Shawn Yu"
 __version__ = "0.1.0"
 
-from .common import TorchRandomSeed
+from .devices import get_device
+from .seeds import TorchRandomSeed
+from .tensors import item2tensor
 
 __all__ = [
+    "get_device",
+
     "TorchRandomSeed",
+
+    "item2tensor",
 ]
