@@ -3,7 +3,7 @@
 # @Time     :   2026/7/23 17:30
 # @Author   :   Shawn
 # @Version  :   Version 0.1.0
-# @File     :   common.py
+# @File     :   seeds.py
 # @Desc     :   
 
 from numpy import random as np_random
