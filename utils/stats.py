@@ -8,7 +8,7 @@
 
 from numpy import (random as np_random,
                    unique, ndarray)
-from pandas import DataFrame, Series, read_csv, Index
+from pandas import DataFrame, Series, read_csv, Index, concat
 from pathlib import Path
 from random import seed as rnd_seed, getstate, setstate
 from time import perf_counter
@@ -170,11 +170,11 @@ def check_labels_distribution(labels: Series, *, dis_counts: bool = True, dis_pr
 
 
 @timer
-def encode_labels(labels: Series, *, dis_encoded: bool = True) -> tuple[Series, LabelEncoder]:
+def encode_labels(labels: Series, *, display: bool = True) -> tuple[Series, LabelEncoder]:
     """
     Encode the labels in the target variable.
     :param labels: the target variable
-    :param dis_encoded: Toggle for printing the encoded labels
+    :param display: Toggle for printing the encoded labels
     :return: the encoded labels and the label encoder
     """
     # Initialise the label encoder
@@ -186,9 +186,9 @@ def encode_labels(labels: Series, *, dis_encoded: bool = True) -> tuple[Series, 
         name=labels.name
     )
 
-    if dis_encoded:
-        print(f"Label encoder classes: {encoder.classes_}")
-        print(f"5 / {len(out)} encoded labels:\n{out.head()}")
+    if display:
+        print(f"Label encoder classes: { {i: cat for i, cat in enumerate(encoder.classes_)} }")
+        print(f"5 / {len(out)} encoded labels:\n{concat([labels.head(), out.head()], axis=1)}")
 
     return out, encoder
 
@@ -197,7 +197,7 @@ def encode_labels(labels: Series, *, dis_encoded: bool = True) -> tuple[Series, 
 def split_data(
         features: DataFrame, labels: Series,
         *,
-        randomness: int = 27, shuffle_status: bool = True, dis_split: bool = True
+        randomness: int = 27, shuffle_status: bool = True, display: bool = True
 ) -> tuple:
     """
     Split the data into training, validation, and proving sets.
@@ -205,7 +205,7 @@ def split_data(
     :param labels: the Series of labels
     :param randomness: the random seed for reproducibility
     :param shuffle_status: whether to shuffle the data before splitting
-    :param dis_split: Toggle for printing the split sets
+    :param display: Toggle for printing the split sets
     :return: the training, validation, and proving sets
     """
     assert len(features) == len(labels), "The number of features must be equal to the number of labels."
@@ -225,7 +225,7 @@ def split_data(
         stratify=y_temp,
     )
 
-    if dis_split:
+    if display:
         print(f"Training set: {X_train.shape}, {y_train.shape}")
         print(f"Validation set: {X_valid.shape}, {y_valid.shape}")
         print(f"Proving set: {X_test.shape}, {y_test.shape}")
@@ -234,11 +234,11 @@ def split_data(
 
 
 @timer
-def create_features_transformer(features: DataFrame, *, dis_transformer: bool = True) -> ColumnTransformer:
+def create_features_transformer(features: DataFrame, *, display: bool = True) -> ColumnTransformer:
     """
     Create a ColumnTransformer to preprocess the categorical data and scale the numerical data.
     :param features: the DataFrame to be preprocessed
-    :param dis_transformer: Toggle for printing the transformer details.
+    :param display: Toggle for printing the transformer details.
     :return: the created ColumnTransformer
     """
     # Divide the columns into numerical and categorical types
@@ -266,7 +266,7 @@ def create_features_transformer(features: DataFrame, *, dis_transformer: bool = 
         ])
         transformers.append(("cat", categorical_pipe, categorical_cols))
 
-    if dis_transformer:
+    if display:
         print(f"Numerical columns: {numerical_cols}")
         print(f"Categorical columns: {categorical_cols}")
 
@@ -297,6 +297,24 @@ def transform_features(features: ndarray, *, transformer: ColumnTransformer, ind
         columns=transformer.get_feature_names_out(),
         index=index
     )
+
+
+def compare_labels(data: DataFrame, labels: Series, *, target_label: str | None = None, display: bool = True) -> None:
+    """
+    Compare the original labels with the encoded labels.
+    :param data: the DataFrame containing the original labels
+    :param labels: the Series containing the encoded labels
+    :param target_label: the name of the target label column
+    :param display: Toggle for printing the comparison
+    :return: None
+    """
+    if target_label is None:
+        comparison = data.loc[labels.index].copy()
+    else:
+        comparison = data.loc[labels.index][target_label].copy()
+
+    comparison["ENCODED"] = labels
+    if display: print(comparison.head())
 
 
 @timer
