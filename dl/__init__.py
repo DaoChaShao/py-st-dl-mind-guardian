@@ -25,8 +25,8 @@ from .devices import get_device
 from .seeds import TorchRandomSeed
 from .tensors import item2tensor
 
-from .nets.abcs import Net
-from .nets.mlp import MLP
+from .nets import Net
+from .nets import MLP
 
 __all__ = [
     "TorchDataset",
