@@ -21,7 +21,9 @@ __author__ = "Shawn Yu"
 __version__ = "0.1.0"
 
 from .abcs import Net
+from .mlp import MLP
 
 __all__ = [
     "Net",
+    "MLP"
 ]
