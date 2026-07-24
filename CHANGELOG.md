@@ -5,13 +5,14 @@
 
 ### Features
 
+- **nets:** add MLP class to network module ([98fbcd9](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/98fbcd9e5ec9230a4a836b2fa3c9fa51acf4a9f0))
+- **project:** initialize deep learning project with PyTorch and CUDA support ([99812b0](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/99812b025b2d1dab3dbf54e2b136c01fb19116ee))
 - **dl:** add Multi-Layer Perceptron (MLP) implementation ([9033ca5](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/9033ca578bd2eb82b22970141a1b0533a6e32438))
 - **dl:** add TorchDataset class for PyTorch data handling ([321a66e](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/321a66e31888664c6b0c2f328e90eeec141a398b))
 - **dataloader:** add custom PyTorch DataLoader with NLP batching support ([452064a](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/452064a311c95da79093ea872f78cfabc7d86283))
 - **nets:** add abstract base class for neural networks ([771104f](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/771104f7a4598786d7a17abc78b285a215f2a2de))
 - **core:** add dataset and neural network components to core module ([97e2f5e](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/97e2f5ef00ada6b19435135e66b16b1e1decaab8))
 - **nets:** initialize neural network module with PyTorch toolkit ([9ef898c](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/9ef898ca0a74d96a34ba6e1914a2031a0ad0a1c9))
-- **project:** initialize deep learning project with PyTorch and CUDA support ([3881cb2](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/3881cb25eb7e7c404fae9ce4f38ddae5ee48a942))
 - **dl:** add tensor conversion utility function ([b4b39e1](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/b4b39e184d2ca9cd673e14d402cd69d67cf8b5e8))
 - **utils:** add label comparison function and improve encoding display ([3b102c6](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/3b102c646d29951efa51d182ebb9f3a9f870c8b8))
 - **devices:** add device detection and selection utility ([249528a](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/249528a83975230faeb35c0786c7c3d14a313e44))
@@ -87,6 +88,7 @@
 
 ### Code Refactoring
 
+- **nets:** update import statements for Net and MLP classes ([08f2487](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/08f248744696817c5d742312fa0f4a7c07508964))
 - **dl:** rename common.py to seeds.py ([aa34f59](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/aa34f596ad437fcba4a8f274c96b9748b60bb854))
 - **pipeline:** reorganize preprocessing functions and add label validation ([59d5a50](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/59d5a50fa5fed55f267ab67530af00e96778d084))
 - **utils:** update imports and exports in __init__.py ([1b1ec11](https://github.com/DaoChaShao/py-st-dl-mind-guardian/commit/1b1ec115dff0d26805f8ae7be76fc667b18ada5a))
